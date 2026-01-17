@@ -1,4 +1,4 @@
-export default function HomePage() {
+export default functionn HomePage() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-20 px-4">
       {/* THE HERO SECTION */}
