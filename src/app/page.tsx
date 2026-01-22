@@ -1,4 +1,23 @@
+import ServiceCard from "@/Components/ServiceCard";
+
 export default function HomePage() {
+  const SERVICES = [
+    {
+      title: "Haircut & Style",
+      description: "Premium cut with hot towel finish.",
+      price: "$40",
+    },
+    {
+      title: "Beard Trim",
+      description: "Precision shaping and grooming.",
+      price: "$25",
+    },
+    {
+      title: "The Works",
+      description: "Full cut, beard, and facial massage.",
+      price: "$60",
+    },
+  ];
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-20 px-4">
       {/* THE HERO SECTION */}
@@ -21,6 +40,21 @@ export default function HomePage() {
           Our Services
         </button>
       </div>
+      <section className="max-w-6xl mx-auto py-20 px-4">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+
+        {/* The Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {SERVICES.map((service, index) => (
+            <ServiceCard
+              key={index}
+              title={service.title}
+              description={service.description}
+              price={service.price}
+            />
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
