@@ -1,11 +1,7 @@
-export default function HomePage() {
-  interface Service {
-    id: number;
-    title: string;
-    description: string;
-    price: string;
-  }
+import ServiceCard from "@/Components/ServiceCard";
+import { Service } from "@/Components/ServiceCard";
 
+export default function HomePage() {
   const SERVICES: Service[] = [
     {
       id: 1,
@@ -49,17 +45,12 @@ export default function HomePage() {
       <section>
         <div className="grid grid-cols-3 gap-10 mt-8">
           {SERVICES.map((ser) => (
-            <div className="w-90 bg-white rounded-2xl" key={ser.id}>
-              <div className="my-3 px-3 font-mono font-bold text-lg text-black">
-                {ser.title}
-              </div>
-              <div className="my-3 px-3 font-mono text-black">
-                {ser.description}
-              </div>
-              <div className="my-3 px-3 font-mono text-blue-500">
-                {ser.price}
-              </div>
-            </div>
+            <ServiceCard
+              key={ser.id}
+              title={ser.title}
+              description={ser.description}
+              price={ser.price}
+            />
           ))}
         </div>
       </section>
