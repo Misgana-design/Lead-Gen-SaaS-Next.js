@@ -38,7 +38,7 @@ export default function HomePage() {
         <button className="bg-blue-600 text-black px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
           Book Now
         </button>
-        <button className="border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition">
+        <button className="border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 hover:text-black transition">
           Our Services
         </button>
       </div>
