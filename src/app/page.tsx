@@ -1,5 +1,6 @@
 import ServiceCard from "@/Components/ServiceCard";
 import { Service } from "@/Components/ServiceCard";
+import BookingButton from "@/Components/BookingButton";
 
 export default function HomePage() {
   const SERVICES: Service[] = [
@@ -35,9 +36,7 @@ export default function HomePage() {
       </p>
       {/* THE CALL TO ACTION (CTA) */}
       <div className="mt-10 flex gap-4">
-        <button className="bg-blue-600 text-black px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-          Book Now
-        </button>
+        <BookingButton/>
         <button className="border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 hover:text-black transition">
           Our Services
         </button>
