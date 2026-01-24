@@ -14,3 +14,5 @@ jobs:
         run: npx tsc --noEmit # Ensures TypeScript is happy
       - name: Build Project
         run: npm run build # Ensures the project actually compiles
+      - name: Prisma Generate
+        run: npx prisma generate # Generates the TypeScript types for our DB
