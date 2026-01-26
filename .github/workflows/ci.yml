@@ -1,19 +1,28 @@
-# .github/workflows/ci.yml
 name: Code Quality Check
 
-on: [push, pull_request] # Run this every time we push code
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # Gets our code
+      - uses: actions/checkout@v4
+      
       - name: Install Dependencies
         run: npm install
-      - name: Check Types
-        run: npx tsc --noEmit # Ensures TypeScript is happy
+        
       - name: Prisma Generate
-        run: npx prisma generate # Generates the TypeScript types for our DB
-      - name: Build Project
-        run: npm run build # Ensures the project actually compiles
+        # We "inject" a temporary variable just for this step
+        run: npx prisma generate 
+        env:
+          DATABASE_URL: "file:./temp.db" 
 
+      - name: Check Types
+        run: npx tsc --noEmit
+        env:
+          DATABASE_URL: "file:./temp.db"
+
+      - name: Build Project
+        run: npm run build
+        env:
+          DATABASE_URL: "file:./temp.db"
