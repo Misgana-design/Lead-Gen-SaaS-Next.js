@@ -1,12 +1,19 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
+// 1. The Generator: This creates the "Prisma Client" (the tool we use in our code)
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
+// 2. The Datasource: This tells Prisma WHERE the database is
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+// 3. The Model: This is the actual "Table" for your leads
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  service   String
+  createdAt DateTime @default(now())
 }
