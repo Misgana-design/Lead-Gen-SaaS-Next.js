@@ -37,8 +37,8 @@ export default function HomePage() {
       </p>
       {/* THE CALL TO ACTION (CTA) */}
       <div className="mt-10 flex gap-4">
-        <BookingButton />
-        <button className="border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 hover:text-black transition">
+        <BookingButton label="Schedule now" />
+        <button className="border w-full border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition">
           Our Services
         </button>
       </div>
