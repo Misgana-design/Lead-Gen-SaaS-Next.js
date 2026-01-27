@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BookingButton from "./BookingButton";
+import BookingButton from "@/Components/BookingButton";
 
 export default function Navbar() {
   return (
