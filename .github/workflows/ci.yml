@@ -7,15 +7,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Install Dependencies
         run: npm install
-        
+
       - name: Prisma Generate
         # We "inject" a temporary variable just for this step
-        run: npx prisma generate 
+        run: npx prisma generate
         env:
-          DATABASE_URL: "file:./temp.db" 
+          DATABASE_URL: "file:./temp.db"
+
+      - name: Prisma Setup
+        # 'db push' forces the schema into the temp database without
+        # needing a full migration history. Perfect for CI!
+        run: |
+          npx prisma db push --accept-data-loss
+          npx prisma generate
+        env:
+          DATABASE_URL: "file:./temp.db"
 
       - name: Check Types
         run: npx tsc --noEmit
