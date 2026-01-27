@@ -1,7 +1,7 @@
 "use client";
 
 interface ButtonProps {
-  label?: string; // The "?" makes it optional
+  label?: string; 
   variant?: "primary" | "outline"; // We can choose between two styles
   onClick?: () => void;
 }
