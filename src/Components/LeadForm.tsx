@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { createLead } from "@/app/actions/leads"; // Import your action!
+import { motion } from "framer-motion";
 
 export default function LeadForm() {
   const [loading, setLoading] = useState(false);
@@ -30,36 +31,43 @@ export default function LeadForm() {
   }
 
   return (
-    <section className="max-w-md mx-auto mt-20 p-8 border rounded-2xl bg-gray-50">
-      <h2 className="text-2xl text-black font-bold mb-6">Request a Quote</h2>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <section className="max-w-md mx-auto mt-20 p-8 border rounded-2xl bg-gray-50">
+        <h2 className="text-2xl text-black font-bold mb-6">Request a Quote</h2>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          name="name"
-          placeholder="Your Name"
-          required
-          className="p-3 text-black border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email Address"
-          required
-          className="p-3 text-black border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-        />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input
+            name="name"
+            placeholder="Your Name"
+            required
+            className="p-3 text-black border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder="Email Address"
+            required
+            className="p-3 text-black border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          />
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition disabled:bg-gray-400"
-        >
-          {loading ? "Sending..." : "Get Started"}
-        </button>
+          <button
+            type="submit"
+            disabled={loading}
+            className="bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition disabled:bg-gray-400"
+          >
+            {loading ? "Sending..." : "Get Started"}
+          </button>
 
-        {message && (
-          <p className="text-green-600 text-center font-medium">{message}</p>
-        )}
-      </form>
-    </section>
+          {message && (
+            <p className="text-green-600 text-center font-medium">{message}</p>
+          )}
+        </form>
+      </section>
+    </motion.div>
   );
 }
