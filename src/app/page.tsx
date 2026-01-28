@@ -1,7 +1,7 @@
-import ServiceCard from "@/Components/ServiceCard";
-import { Service } from "@/Components/ServiceCard";
-import BookingButton from "@/Components/BookingButton";
-import LeadForm from "@/Components/LeadForm";
+import ServiceCard from "@/components/ServiceCard";
+import { Service } from "@/components/ServiceCard";
+import BookingButton from "@/components/BookingButton";
+import LeadForm from "@/components/LeadForm";
 
 export default function HomePage() {
   const SERVICES: Service[] = [
