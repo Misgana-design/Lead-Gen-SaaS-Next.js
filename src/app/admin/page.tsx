@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Lead } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +24,7 @@ export default async function AdminPage() {
             </tr>
           </thead>
           <tbody>
-            {leads.map((lead) => (
+            {leads.map((lead: Lead) => (
               <tr
                 key={lead.id}
                 className="border-b last:border-0 hover:bg-gray-50"
