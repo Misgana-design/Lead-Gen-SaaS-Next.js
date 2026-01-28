@@ -28,7 +28,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Added 'scroll-smooth' so clicking nav links slides the page nicely
     <html lang="en" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black pt-20 flex flex-col min-h-screen`}
