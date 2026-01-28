@@ -38,21 +38,21 @@ export default function LeadForm() {
       viewport={{ once: true }}
     >
       <section className="max-w-md mx-auto mt-20 p-8 border rounded-2xl bg-gray-50">
-        <h2 className="text-2xl text-black font-bold mb-6">Request a Quote</h2>
+        <h2 className="text-2xl font-bold mb-6">Request a Quote</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
             name="name"
             placeholder="Your Name"
             required
-            className="p-3 text-black border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
           />
           <input
             name="email"
             type="email"
             placeholder="Email Address"
             required
-            className="p-3 text-black border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
           <button
